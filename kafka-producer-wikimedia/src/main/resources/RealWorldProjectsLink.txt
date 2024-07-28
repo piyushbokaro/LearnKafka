@@ -1,0 +1,4 @@
+Real World Example:
+	Recent Data Stream: https://stream.wikimedia.org/v2/stream/recentchange
+	Demo at: https://codepen.io/Krinkle/pen/BwEKgW?editors=1010
+	Demo at: https://esjewett.github.io/wm-eventsource-demo/
