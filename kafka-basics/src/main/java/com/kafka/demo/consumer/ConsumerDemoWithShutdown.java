@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 
 import java.time.Duration;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Properties;
 
 public class ConsumerDemoWithShutdown {
@@ -57,13 +58,13 @@ public class ConsumerDemoWithShutdown {
 
         try {
             // Subscribe a topic
-            kafkaConsumer.subscribe(Arrays.asList(topic));
+            kafkaConsumer.subscribe(List.of(topic));
             //Consume Data
             while (true) {
                 ConsumerRecords<String, String> consumerRecords= kafkaConsumer.poll(Duration.ofMillis(1000));
                 consumerRecords.forEach(consumerRecord -> {
-                    LOGGER.info("Key::" + consumerRecord.key(), " Value::" + consumerRecord.value());
-                    LOGGER.info("Partition::" + consumerRecord.partition() + " Offset::" + consumerRecord.offset());
+                    LOGGER.info("Key::{} Value:: {}", consumerRecord.key(), consumerRecord.value());
+                    LOGGER.info("Partition::{} Offset::{}", consumerRecord.partition(), consumerRecord.offset());
 
                 });
             }
